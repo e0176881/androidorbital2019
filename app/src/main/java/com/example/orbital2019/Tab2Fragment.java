@@ -6,13 +6,19 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class Tab2Fragment extends Fragment {
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
+        ((FrameLayout) getActivity().findViewById(R.id.content_frame)).removeAllViews(); //to prevent framelayout from showing
+    }
 
     public Tab2Fragment() {
         // Required empty public constructor

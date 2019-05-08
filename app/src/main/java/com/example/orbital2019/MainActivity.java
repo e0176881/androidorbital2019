@@ -16,9 +16,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.support.v4.app.*;
+import android.widget.FrameLayout;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private boolean isStartup = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +89,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         Bundle bundle = new Bundle();
+        if(isStartup) {
+            ((FrameLayout) findViewById(R.id.content_frame)).removeAllViews();
+            isStartup = false;
+        }
         if (id == R.id.nav_home) {
             Intent myIntent = new Intent(MainActivity.this, HomeActivity.class);
             MainActivity.this.startActivity(myIntent);

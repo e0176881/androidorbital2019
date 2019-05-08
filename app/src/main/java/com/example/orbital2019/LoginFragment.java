@@ -14,7 +14,8 @@ public class LoginFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        view.findViewById(R.id.tabs).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.tabs).setVisibility(View.GONE);
+        getActivity().findViewById(R.id.viewpager).setVisibility(View.GONE);
     }
 
     public LoginFragment() {

@@ -15,10 +15,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private boolean isStartup = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +79,10 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         Bundle bundle = new Bundle();
+        if(isStartup) {
+            ((FrameLayout) findViewById(R.id.content_frame)).removeAllViews();
+            isStartup = false;
+        }
         if (id == R.id.nav_home) {
             Intent myIntent = new Intent(HomeActivity.this, HomeActivity.class);
             HomeActivity.this.startActivity(myIntent);
