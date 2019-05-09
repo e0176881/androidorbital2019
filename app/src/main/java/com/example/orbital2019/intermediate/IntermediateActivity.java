@@ -1,6 +1,7 @@
 package com.example.orbital2019.intermediate;
 
 import android.app.ActionBar;
+import android.content.Intent;
 import android.graphics.Movie;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,8 +62,12 @@ public class IntermediateActivity extends AppCompatActivity {
         // on click listner
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemClick(AdapterView<?> parent, final View view,
+                                    int position, long id) {
+                UserDetails userDetails = (UserDetails)parent.getItemAtPosition(position);
+                Intent intent = new Intent(getApplicationContext(), IntermediateUpdateUserActivity.class);
+                intent.putExtra("userDetails", (Serializable) userDetails);
+                startActivity(intent);
             }
         });
 

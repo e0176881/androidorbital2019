@@ -2,10 +2,11 @@ package com.example.orbital2019.intermediate.model;
 
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserDetails {
+public class UserDetails implements Serializable {
 
     // Database Keys
     public static final String userDetailsKey = "UserDetails";
@@ -61,6 +62,13 @@ public class UserDetails {
         db.collection(userDetailsKey).document(matriculationNumber).set(data);
     }
 
+    public void deleteEntry() {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        Map<String,Object> data = new HashMap<>();
 
+        data.put(nameKey,name);
+        data.put(matriculationNumberKey,matriculationNumber);
+        db.collection(userDetailsKey).document(matriculationNumber).delete();
+    }
 
 }
