@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context=".LoginFragment">
+    android:padding="16dp">
 
 
     <ImageView

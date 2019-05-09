@@ -32,8 +32,7 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-        findViewById(R.id.tabs).setVisibility(View.GONE);
+        setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         mAuth = FirebaseAuth.getInstance();
@@ -59,6 +58,10 @@ public class HomeActivity extends AppCompatActivity
                     Menu navMenuLogIn = navigationView.getMenu();
                     navMenuLogIn.findItem(R.id.nav_login).setVisible(false);
                     navMenuLogIn.findItem(R.id.nav_register).setVisible(false);
+                } else {
+                    Menu navMenuLogIn = navigationView.getMenu();
+                    navMenuLogIn.findItem(R.id.nav_login).setVisible(true);
+                    navMenuLogIn.findItem(R.id.nav_register).setVisible(true);
                 }
             }
         });
@@ -109,10 +112,9 @@ public class HomeActivity extends AppCompatActivity
             isStartup = false;
         }
         if (id == R.id.nav_home) {
-            Intent myIntent = new Intent(HomeActivity.this, HomeActivity.class);
-            HomeActivity.this.startActivity(myIntent);
-        } else if (id == R.id.nav_intro) {
+
             fragment = new HomeFragment();
+
         } else if (id == R.id.nav_register) {
             fragment = new RegisterFragment();
 
