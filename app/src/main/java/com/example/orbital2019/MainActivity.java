@@ -68,11 +68,13 @@ public class MainActivity extends AppCompatActivity
                     Menu navMenuLogIn = navigationView.getMenu();
                     navMenuLogIn.findItem(R.id.nav_login).setVisible(false);
                     navMenuLogIn.findItem(R.id.nav_register).setVisible(false);
+                    navMenuLogIn.findItem(R.id.nav_logout).setVisible(true);
                 } else {
                     // show items in nav bar
                     Menu navMenuLogIn = navigationView.getMenu();
                     navMenuLogIn.findItem(R.id.nav_login).setVisible(true);
                     navMenuLogIn.findItem(R.id.nav_register).setVisible(true);
+                    navMenuLogIn.findItem(R.id.nav_logout).setVisible(false);
                 }
             }
         });
