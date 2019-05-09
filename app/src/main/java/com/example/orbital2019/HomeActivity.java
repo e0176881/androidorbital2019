@@ -2,6 +2,7 @@ package com.example.orbital2019;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -39,7 +40,7 @@ public class HomeActivity extends AppCompatActivity
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        final NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
             this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -48,12 +49,20 @@ public class HomeActivity extends AppCompatActivity
 
 
 
-        if(mAuth.getCurrentUser()!=null) {
-            System.out.println(mAuth.getCurrentUser().getEmail());
-            Menu navMenuLogIn = navigationView.getMenu();
-            navMenuLogIn.findItem(R.id.nav_login).setVisible(false);
-            navMenuLogIn.findItem(R.id.nav_register).setVisible(false);
-        }
+        // add auth change listener
+        mAuth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                if(firebaseAuth.getCurrentUser()!=null) {
+
+                    Menu navMenuLogIn = navigationView.getMenu();
+                    navMenuLogIn.findItem(R.id.nav_login).setVisible(false);
+                    navMenuLogIn.findItem(R.id.nav_register).setVisible(false);
+                }
+            }
+        });
+
     }
 
     @Override
@@ -110,10 +119,9 @@ public class HomeActivity extends AppCompatActivity
         } else if (id == R.id.nav_login) {
             fragment = new LoginFragment();
 
-        } else if (id == R.id.nav_tabs) {
-            Intent myIntent = new Intent(HomeActivity.this, MainActivity.class);
-            HomeActivity.this.startActivity(myIntent);
+        } else if (id == R.id.nav_logout) {
 
+            FirebaseAuth.getInstance().signOut();
         }
 
         if (fragment != null) {

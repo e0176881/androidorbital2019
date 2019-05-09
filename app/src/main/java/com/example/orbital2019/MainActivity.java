@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity
             fragment = new HomeFragment();
         } else if (id == R.id.nav_login) {
             fragment = new LoginFragment();
-        } else if (id == R.id.nav_tabs) {
+        } else if (id == R.id.nav_logout) {
             Intent myIntent = new Intent(MainActivity.this, MainActivity.class);
             MainActivity.this.startActivity(myIntent);
     }
