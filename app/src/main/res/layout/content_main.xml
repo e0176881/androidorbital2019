@@ -13,14 +13,48 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Welcome to Orbital 2019"/>
+
+            <LinearLayout
+                android:padding="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/beginner_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#008B8B"
+                    android:gravity="center"
+                    android:text="Android Beginner "
+                    android:textColor="#FFF"
+                    android:textSize="30sp" />
+                <Button
+                    android:id="@+id/intermediate_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#008B8B"
+                    android:gravity="center"
+                    android:text="Android Intermediate"
+                    android:textColor="#FFF"
+                    android:textSize="30sp" />
+
+                <Button
+                    android:id="@+id/more_stuff_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="#008B8B"
+                    android:gravity="center"
+                    android:text="Even More Stuff Here"
+                    android:textColor="#FFF"
+                    android:textSize="30sp" />
 
 
+            </LinearLayout>
     </FrameLayout>
 
 
