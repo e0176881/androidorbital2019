@@ -24,14 +24,6 @@ public class UserDetails {
 
     }
 
-    public String getMatriculationNumber() {
-        return matriculationNumber;
-    }
-
-    public String getName() {
-        return name;
-    }
-
     // call to update entry In database.
     public void updateEntry () {
 

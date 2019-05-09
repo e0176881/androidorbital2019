@@ -16,8 +16,6 @@ import android.view.MenuItem;
 import com.example.orbital2019.intermediate.auth.LoginFragment;
 import com.example.orbital2019.intermediate.auth.RegisterFragment;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -48,12 +46,6 @@ public class MainActivity extends AppCompatActivity
         displaySelectedScreen(R.id.nav_home);
 
 
-        //Firestore Setup
-        FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-        FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
-                .setTimestampsInSnapshotsEnabled(true)
-                .build();
-        firestore.setFirestoreSettings(settings);
 
         mAuth = FirebaseAuth.getInstance();
 

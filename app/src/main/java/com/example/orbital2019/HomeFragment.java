@@ -1,6 +1,5 @@
 package com.example.orbital2019;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.orbital2019.intermediate.IntermediateActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -38,20 +36,6 @@ public class HomeFragment extends Fragment {
             if(mAuth.getCurrentUser()!=null) {
                 userEmailTV.setText("Welcome " + mAuth.getCurrentUser().getEmail());
             }
-
-
-
-            // Move to DetailList
-            intermediateBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    Intent intent = new Intent(getContext(), IntermediateActivity.class);
-
-                    startActivityForResult(intent, 0);
-
-                }
-            });
 
 
         }
