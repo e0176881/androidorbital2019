@@ -1,9 +1,7 @@
-package com.example.orbital2019;
+package com.example.orbital2019.intermediate;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
@@ -15,7 +13,11 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.orbital2019.Entity.User;
+
+import com.example.orbital2019.HomeFragment;
+import com.example.orbital2019.R;
+
+
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
