@@ -71,30 +71,39 @@
         android:layout_weight="1">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_gravity="center">
+            <Button
+                android:id="@+id/beginner_button"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:background="#008B8B"
                 android:gravity="center"
-                android:text="Android Intermediate Development"
+                android:text="Android Beginner "
                 android:textColor="#FFF"
                 android:textSize="30sp" />
-            <TextView
+            <Button
+                android:id="@+id/intermediate_button"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:background="#008B8B"
                 android:gravity="center"
-                android:text="More Stuff Here"
+                android:text="Android Intermediate"
                 android:textColor="#FFF"
                 android:textSize="30sp" />
 
-            <TextView
+            <Button
+                android:id="@+id/more_stuff_button"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginBottom="5dp"
@@ -103,6 +112,9 @@
                 android:text="Even More Stuff Here"
                 android:textColor="#FFF"
                 android:textSize="30sp" />
+
+
+            </LinearLayout>
 
 
         </LinearLayout>
