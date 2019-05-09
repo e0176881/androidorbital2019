@@ -16,9 +16,6 @@ import android.widget.Toast;
 
 import com.example.orbital2019.HomeFragment;
 import com.example.orbital2019.R;
-
-
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -35,8 +32,7 @@ public class LoginFragment extends Fragment  {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().findViewById(R.id.tabs).setVisibility(View.GONE);
-        getActivity().findViewById(R.id.viewpager).setVisibility(View.GONE);
+
         mAuth = FirebaseAuth.getInstance();
 
         emailTV = getActivity().findViewById(R.id.email);

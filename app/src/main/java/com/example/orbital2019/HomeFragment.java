@@ -5,22 +5,17 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
+import android.widget.Button;
 import android.widget.TextView;
 
-import android.widget.Button;
-
-
 import com.google.firebase.auth.FirebaseAuth;
-
 
 
 public class HomeFragment extends Fragment {
 
     private FirebaseAuth mAuth;
-    TextView textView;
-
-
+    TextView userEmailTV;
+    Button beginnerBtn, intermediateBtn, moreStuffBtn;
 
 
         @Override
@@ -29,11 +24,18 @@ public class HomeFragment extends Fragment {
             mAuth = FirebaseAuth.getInstance();
 
 
-            textView = (TextView) getActivity().findViewById(R.id.userEmail);
-            if(mAuth.getCurrentUser()!=null) {
-                textView.setText("Welcome " + mAuth.getCurrentUser().getEmail());
-            }
 
+            userEmailTV = view.findViewById(R.id.userEmail);
+
+            beginnerBtn = view.findViewById(R.id.beginner_button);
+            intermediateBtn = view.findViewById(R.id.intermediate_button);
+            moreStuffBtn = view.findViewById(R.id.more_stuff_button);
+
+
+            // on logged in
+            if(mAuth.getCurrentUser()!=null) {
+                userEmailTV.setText("Welcome " + mAuth.getCurrentUser().getEmail());
+            }
 
 
         }
@@ -46,7 +48,7 @@ public class HomeFragment extends Fragment {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-            return inflater.inflate(R.layout.activity_home, container, false);
+            return inflater.inflate(R.layout.fragment_home, container, false);
 
         }
 

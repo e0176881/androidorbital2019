@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
 
 import com.example.orbital2019.R;
 import com.example.orbital2019.intermediate.model.UserDetails;
@@ -26,11 +28,12 @@ public class RegisterFragment extends Fragment  {
     private Button regBtn;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
+
+
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        getActivity().findViewById(R.id.tabs).setVisibility(View.GONE);
-        getActivity().findViewById(R.id.viewpager).setVisibility(View.GONE);
+
         mAuth = FirebaseAuth.getInstance();
 
         emailTV = getActivity().findViewById(R.id.email);
@@ -47,10 +50,6 @@ public class RegisterFragment extends Fragment  {
                 registerNewUser();
             }
         });
-
-
-
-
 
     }
 
@@ -101,7 +100,9 @@ public class RegisterFragment extends Fragment  {
                             ft.commit();
                         }
                         else {
-                            Toast.makeText(getActivity().getApplicationContext(), "Registration failed! Please try again later", Toast.LENGTH_LONG).show();
+
+                            Log.d("testing ", "onComplete: " + task.toString());
+                            Toast.makeText(getActivity().getApplicationContext(), "Registration failed!" + task.getException().toString(), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

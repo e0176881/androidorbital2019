@@ -1,7 +1,6 @@
 package com.example.orbital2019.intermediate.model;
 
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.SetOptions;
 
 import java.util.HashMap;
 import java.util.Map;
