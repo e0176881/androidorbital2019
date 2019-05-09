@@ -51,7 +51,7 @@ public class UserDetails {
         data.put(matriculationNumberKey,matriculationNumber);
 
 
-        db.collection(userDetailsKey).document(matriculationNumberKey).set(data);
+        db.collection(userDetailsKey).document(matriculationNumber).set(data);
     }
 
 

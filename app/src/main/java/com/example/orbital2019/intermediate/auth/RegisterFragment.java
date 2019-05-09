@@ -61,8 +61,8 @@ public class RegisterFragment extends Fragment  {
         final String email, password, matriculationNumber, name;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
-        matriculationNumber = emailTV.getText().toString();
-        name = passwordTV.getText().toString();
+        matriculationNumber = matriculationNumberTV.getText().toString();
+        name = nameTV.getText().toString();
 
 
         if (TextUtils.isEmpty(email)) {
