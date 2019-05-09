@@ -60,9 +60,10 @@
         android:background="#a7a9ef"></View>
 
     <TextView
+        android:id="@+id/userEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Some Text Here" />
+        android:text="Welcome" />
 
     <ScrollView
         android:layout_width="match_parent"

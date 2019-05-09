@@ -17,9 +17,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private boolean isStartup = true;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +31,7 @@ public class HomeActivity extends AppCompatActivity
         findViewById(R.id.tabs).setVisibility(View.GONE);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        mAuth = FirebaseAuth.getInstance();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
 
@@ -38,6 +41,15 @@ public class HomeActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+        if(mAuth.getCurrentUser()!=null) {
+            System.out.println(mAuth.getCurrentUser().getEmail());
+            Menu navMenuLogIn = navigationView.getMenu();
+            navMenuLogIn.findItem(R.id.nav_login).setVisible(false);
+            navMenuLogIn.findItem(R.id.nav_register).setVisible(false);
+        }
     }
 
     @Override
@@ -88,8 +100,12 @@ public class HomeActivity extends AppCompatActivity
             HomeActivity.this.startActivity(myIntent);
         } else if (id == R.id.nav_intro) {
             fragment = new HomeFragment();
+        } else if (id == R.id.nav_register) {
+            fragment = new RegisterFragment();
+
         } else if (id == R.id.nav_login) {
             fragment = new LoginFragment();
+
         } else if (id == R.id.nav_tabs) {
             Intent myIntent = new Intent(HomeActivity.this, MainActivity.class);
             HomeActivity.this.startActivity(myIntent);
