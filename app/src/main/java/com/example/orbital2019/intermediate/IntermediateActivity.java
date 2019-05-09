@@ -13,7 +13,10 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.example.orbital2019.R;
 import com.example.orbital2019.intermediate.model.UserDetails;
@@ -31,7 +34,7 @@ public class IntermediateActivity extends AppCompatActivity {
 
 
     private List<UserDetails> userDetailsList = new ArrayList<UserDetails>();
-    private RecyclerView recyclerView;
+    private ListView listView;
     private DetailsAdapter detailsAdapter;
 
     private EditText searchEditText;
@@ -45,52 +48,22 @@ public class IntermediateActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        recyclerView = (RecyclerView) findViewById(R.id.details_recycler_view);
+        detailsAdapter = new DetailsAdapter(this, userDetailsList);
+
+        listView =  findViewById(R.id.details_list_view);
         searchEditText = findViewById(R.id.search_edit_text);
 
-        detailsAdapter = new DetailsAdapter(userDetailsList);
+
+        listView.setAdapter(detailsAdapter);
 
 
-        recyclerView.setHasFixedSize(false);
-
-
-        // vertical RecyclerView
-        // keep movie_list_row.xml width to `match_parent`
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-
-        // horizontal RecyclerView
-        // keep movie_list_row.xml width to `wrap_content`
-        // RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
-
-        recyclerView.setLayoutManager(mLayoutManager);
-
-        // adding inbuilt divider line
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
-
-        // adding custom divider line with padding 16dp
-        // recyclerView.addItemDecoration(new MyDividerItemDecoration(this, LinearLayoutManager.VERTICAL, 16));
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
-
-        recyclerView.setAdapter(detailsAdapter);
-
-        // row click listener
-        recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+        // on click listner
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onInterceptTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(@NonNull RecyclerView recyclerView, @NonNull MotionEvent motionEvent) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean b) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             }
         });
-
 
         searchEditText.addTextChangedListener(new TextWatcher() {
             @Override

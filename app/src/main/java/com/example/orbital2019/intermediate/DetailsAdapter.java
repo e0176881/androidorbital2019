@@ -1,52 +1,41 @@
 package com.example.orbital2019.intermediate;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.orbital2019.R;
 import com.example.orbital2019.intermediate.model.UserDetails;
 
 import java.util.List;
-public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.MyViewHolder> {
 
-    private List<UserDetails> detailsList;
+    public class DetailsAdapter extends ArrayAdapter<UserDetails> {
+        private final Context context;
+        private final List<UserDetails> values;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView matriculationNumberTV, nameTV;
+        public DetailsAdapter(Context context, List<UserDetails> values) {
+            super(context, R.layout.details_list_row, values);
+            this.context = context;
+            this.values = values;
+        }
 
-        public MyViewHolder(View view) {
-            super(view);
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            View rowView = inflater.inflate(R.layout.details_list_row, parent, false);
 
-            matriculationNumberTV = (TextView) view.findViewById(R.id.matriculation_number);
-            nameTV = (TextView) view.findViewById(R.id.name);
+            TextView nameTV = rowView.findViewById(R.id.name);
+            TextView matriculationNumberTV = rowView.findViewById(R.id.matriculation_number);
+
+            nameTV.setText(values.get(position).getName());
+            matriculationNumberTV.setText(values.get(position).getMatriculationNumber());
+
+
+            return rowView;
         }
     }
-
-
-    public DetailsAdapter(List<UserDetails> moviesList) {
-        this.detailsList = moviesList;
-    }
-
-    @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.details_list_row, parent, false);
-
-        return new MyViewHolder(itemView);
-    }
-
-    @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        UserDetails details = detailsList.get(position);
-        holder.nameTV.setText(details.getName());
-        holder.matriculationNumberTV.setText(details.getMatriculationNumber());
-    }
-
-    @Override
-    public int getItemCount() {
-        return detailsList.size();
-    }
-}
