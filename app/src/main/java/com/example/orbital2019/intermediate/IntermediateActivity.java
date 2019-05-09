@@ -108,7 +108,8 @@ public class IntermediateActivity extends AppCompatActivity {
 
                 if (!s.toString().isEmpty())
                     searchUserData(s.toString());
-
+                else
+                    loadUserData();
             }
         });
 
