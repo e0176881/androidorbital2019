@@ -23,7 +23,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment  {
 
-    private EditText emailTV, passwordTV;
+    private EditText emailEditText, passwordEditText;
     private Button loginBtn;
     private ProgressBar progressBar;
 
@@ -35,8 +35,8 @@ public class LoginFragment extends Fragment  {
 
         mAuth = FirebaseAuth.getInstance();
 
-        emailTV = getActivity().findViewById(R.id.email);
-        passwordTV = getActivity().findViewById(R.id.password);
+        emailEditText = getActivity().findViewById(R.id.email);
+        passwordEditText = getActivity().findViewById(R.id.password);
 
         loginBtn = getActivity().findViewById(R.id.login);
         progressBar = getActivity().findViewById(R.id.progressBar);
@@ -57,8 +57,8 @@ public class LoginFragment extends Fragment  {
         progressBar.setVisibility(View.VISIBLE);
 
         String email, password;
-        email = emailTV.getText().toString();
-        password = passwordTV.getText().toString();
+        email = emailEditText.getText().toString();
+        password = passwordEditText.getText().toString();
 
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getActivity().getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();

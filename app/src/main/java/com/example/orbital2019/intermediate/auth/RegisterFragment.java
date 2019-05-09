@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.example.orbital2019.HomeFragment;
 import com.example.orbital2019.R;
 import com.example.orbital2019.intermediate.model.UserDetails;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,7 +25,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class RegisterFragment extends Fragment  {
 
-    private EditText emailTV, passwordTV, matriculationNumberTV, nameTV;
+    private EditText emailEditText, passwordEditText, matriculationNumberEditText, nameEditText;
     private Button regBtn;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
@@ -36,10 +37,10 @@ public class RegisterFragment extends Fragment  {
 
         mAuth = FirebaseAuth.getInstance();
 
-        emailTV = getActivity().findViewById(R.id.email);
-        passwordTV = getActivity().findViewById(R.id.password);
-        matriculationNumberTV = getActivity().findViewById(R.id.matriculation_number);
-        nameTV = getActivity().findViewById(R.id.name);
+        emailEditText = getActivity().findViewById(R.id.email);
+        passwordEditText = getActivity().findViewById(R.id.password);
+        matriculationNumberEditText = getActivity().findViewById(R.id.matriculation_number);
+        nameEditText = getActivity().findViewById(R.id.name);
 
         regBtn = getActivity().findViewById(R.id.register);
         progressBar = getActivity().findViewById(R.id.progressBar);
@@ -57,10 +58,10 @@ public class RegisterFragment extends Fragment  {
         progressBar.setVisibility(View.VISIBLE);
 
         final String email, password, matriculationNumber, name;
-        email = emailTV.getText().toString();
-        password = passwordTV.getText().toString();
-        matriculationNumber = matriculationNumberTV.getText().toString();
-        name = nameTV.getText().toString();
+        email = emailEditText.getText().toString();
+        password = passwordEditText.getText().toString();
+        matriculationNumber = matriculationNumberEditText.getText().toString();
+        name = nameEditText.getText().toString();
 
 
         if (TextUtils.isEmpty(email)) {
@@ -96,7 +97,7 @@ public class RegisterFragment extends Fragment  {
                             currentUser.createEntry();
 
                             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                            ft.replace(R.id.content_frame, new LoginFragment());
+                            ft.replace(R.id.content_frame, new HomeFragment());
                             ft.commit();
                         }
                         else {
