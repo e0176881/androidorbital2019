@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.support.v4.app.*;
 import android.widget.FrameLayout;
 
-import com.example.orbital2019.intermediate.LoginFragment;
+import com.example.orbital2019.intermediate.auth.LoginFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

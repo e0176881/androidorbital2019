@@ -16,7 +16,8 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 
-import com.example.orbital2019.intermediate.LoginFragment;
+import com.example.orbital2019.intermediate.auth.LoginFragment;
+import com.example.orbital2019.intermediate.auth.RegisterFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 
