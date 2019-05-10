@@ -38,6 +38,7 @@ public class IntermediateUpdateUserActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("Update/Delete Users");
 
 
         Intent intent = this.getIntent();

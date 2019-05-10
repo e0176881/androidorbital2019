@@ -49,6 +49,7 @@ public class IntermediateActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setTitle("View Users");
 
         detailsAdapter = new DetailsAdapter(this, userDetailsList);
 

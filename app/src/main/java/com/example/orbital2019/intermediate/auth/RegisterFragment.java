@@ -34,7 +34,7 @@ public class RegisterFragment extends Fragment  {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        getActivity().setTitle("Register");
         mAuth = FirebaseAuth.getInstance();
 
         emailEditText = getActivity().findViewById(R.id.email);

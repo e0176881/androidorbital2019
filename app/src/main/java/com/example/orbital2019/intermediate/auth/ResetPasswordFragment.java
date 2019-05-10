@@ -31,7 +31,7 @@ public class ResetPasswordFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        getActivity().setTitle("Reset Password");
         mAuth = FirebaseAuth.getInstance();
 
         emailEditText = getActivity().findViewById(R.id.txtemail);

@@ -37,6 +37,7 @@ public class LoginFragment extends Fragment  {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        getActivity().setTitle("Login");
         mAuth = FirebaseAuth.getInstance();
 
         emailEditText = getActivity().findViewById(R.id.email);
