@@ -19,6 +19,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Orbital 2019"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -42,6 +43,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Summer Break"
                 android:textAppearance="?android:attr/textAppearanceMedium" />
 
