@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.orbital2019.intermediate.IntermediateActivity;
+import com.example.orbital2019.tabs.TabsActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -48,6 +49,17 @@ public class HomeFragment extends Fragment {
                 public void onClick(View v) {
 
                     Intent intent = new Intent(getContext(), IntermediateActivity.class);
+
+                    startActivityForResult(intent, 0);
+
+                }
+            });
+
+            moreStuffBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(getContext(), TabsActivity.class);
 
                     startActivityForResult(intent, 0);
 

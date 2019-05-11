@@ -37,6 +37,7 @@ public class RegisterFragment extends Fragment  {
         getActivity().setTitle("Register");
         mAuth = FirebaseAuth.getInstance();
 
+        //initialise components and look for them according to their IDs
         emailEditText = getActivity().findViewById(R.id.email);
         passwordEditText = getActivity().findViewById(R.id.password);
         matriculationNumberEditText = getActivity().findViewById(R.id.matriculation_number);
@@ -56,7 +57,7 @@ public class RegisterFragment extends Fragment  {
 
     private void registerNewUser() {
         progressBar.setVisibility(View.VISIBLE);
-
+        //get the actual String or text that the user type
         final String email, password, matriculationNumber, name;
         email = emailEditText.getText().toString();
         password = passwordEditText.getText().toString();
