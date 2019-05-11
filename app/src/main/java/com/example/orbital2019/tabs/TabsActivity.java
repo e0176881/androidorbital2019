@@ -19,8 +19,10 @@ public class TabsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Tabs Sample");
-        loadFragment(new Tab1());
+        // choose which screen u want to show first.
+        displaySelectedScreen(new Tab1());
         BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -36,12 +38,12 @@ public class TabsActivity extends AppCompatActivity {
                         fragment = new Tab3();
                         break;
                 }
-                return loadFragment(fragment);
+                return displaySelectedScreen(fragment);
             }
         });
     }
 
-    private boolean loadFragment(Fragment fragment) {
+    private boolean displaySelectedScreen(Fragment fragment) {
         //switching fragment
         if (fragment != null) {
             getSupportFragmentManager()
