@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ::Minimum Layout specification::
+    1. need to specify:
+        layout_width: parameter to specify horizontal characteristic
+        layout_height: parameter to specify vertical characteristic
+    2. only 2 available parameter choices:
+        match_parent: follow parent's layout definition
+        wrap_content: follow child content's layout definition
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--default location when not specifying any parameters-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="default"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--centerInParent & background color-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/A"
+        android:text="id: A"
+        android:background="@color/Gray"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+    <!--toRightOf-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@id/A"
+        android:text="B"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--alignParentRight-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        android:text="B'"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--toLeftOf-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toLeftOf="@id/A"
+        android:text="C"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--alignParentLeft-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentLeft="true"
+        android:text="C'"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--above-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_above="@id/A"
+        android:text="D"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--alignParentTop-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:text="D'"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--below-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@id/A"
+        android:text="E"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <!--alignParentBottom-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_alignParentBottom="true"
+        android:text="E'"
+        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+</RelativeLayout>

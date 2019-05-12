@@ -9,8 +9,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.orbital2019.basic.BasicActivity;
 import com.example.orbital2019.intermediate.IntermediateActivity;
-import com.example.orbital2019.tabs.TabsActivity;
+import com.example.orbital2019.extras.ExtrasActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -18,7 +19,7 @@ public class HomeFragment extends Fragment {
 
     private FirebaseAuth mAuth;
     TextView userEmailTV;
-    Button beginnerBtn, intermediateBtn, moreStuffBtn;
+    Button basicBtn, intermediateBtn, moreStuffBtn;
 
 
         @Override
@@ -31,7 +32,7 @@ public class HomeFragment extends Fragment {
 
             userEmailTV = view.findViewById(R.id.userEmail);
 
-            beginnerBtn = view.findViewById(R.id.beginner_button);
+            basicBtn = view.findViewById(R.id.basic_button);
             intermediateBtn = view.findViewById(R.id.intermediate_button);
             moreStuffBtn = view.findViewById(R.id.more_stuff_button);
 
@@ -41,9 +42,19 @@ public class HomeFragment extends Fragment {
                 userEmailTV.setText("Welcome " + mAuth.getCurrentUser().getEmail());
             }
 
+            // Move to Android Basic on button press
+            basicBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
+                    Intent intent = new Intent(getContext(), BasicActivity.class);
 
-            // Move to DetailList
+                    startActivityForResult(intent, 0);
+
+                }
+            });
+
+            // Move to Android Intermediate on button press
             intermediateBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -55,11 +66,12 @@ public class HomeFragment extends Fragment {
                 }
             });
 
+            // Move to more stuffs tap on button press
             moreStuffBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    Intent intent = new Intent(getContext(), TabsActivity.class);
+                    Intent intent = new Intent(getContext(), ExtrasActivity.class);
 
                     startActivityForResult(intent, 0);
 

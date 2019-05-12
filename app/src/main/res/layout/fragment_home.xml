@@ -84,13 +84,13 @@
                 android:gravity="center"
                 android:layout_gravity="center">
             <Button
-                android:id="@+id/beginner_button"
+                android:id="@+id/basic_button"
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:layout_marginBottom="15dp"
                 android:background="#008B8B"
                 android:gravity="center"
-                android:text="Android Beginner "
+                android:text="Android Basic "
                 android:textColor="#FFF"
                 android:textSize="30sp" />
             <Button

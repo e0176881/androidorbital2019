@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Need to specify orientation, vertical or horizontal-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--layout_weight splits the space proportionately according
+        to the weights given, layout weights of 1 for each part
+        split the total space equally into half-->
+    <!--vertical linear layout with layout_weight of 1-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!--default location when not specifying any parameters-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="default"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <!--layout_gravity-->
+        <TextView
+            android:id="@+id/A"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/Gray"
+            android:text="id: A"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <!--paddingStart-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Red"
+            android:paddingStart="30dp"
+            android:text="B"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <!--marginStart-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@color/Red"
+            android:text="B'"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <!--layout_gravity-->
+        <!--refers to the current view wrt parent view-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/Yellow"
+            android:text="C"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <!--gravity-->
+        <!--refers to the child views wrt the current view-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/Yellow"
+            android:gravity="center_horizontal"
+            android:text="C'"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+
+    <!--horizontal linear layout with layout_weight of 1-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <!---->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D"
+
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="D'"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="E'"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+    </LinearLayout>
+</LinearLayout>

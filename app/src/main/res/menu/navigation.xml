@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/tab1"
+        android:id="@+id/Relative"
         android:enabled="true"
         android:icon="@drawable/ic_menu_camera"
-        android:title="Tab1" />
+        android:title="Relative" />
     <item
-        android:id="@+id/tab2"
+        android:id="@+id/Linear"
         android:enabled="true"
         android:icon="@drawable/ic_menu_camera"
-        android:title="Tab2" />
+        android:title="Linear" />
     <item
-        android:id="@+id/tab3"
+        android:id="@+id/Widgets"
         android:enabled="true"
         android:icon="@drawable/ic_menu_camera"
-        android:title="Tab3" />
+        android:title="Widgets" />
 </menu>
