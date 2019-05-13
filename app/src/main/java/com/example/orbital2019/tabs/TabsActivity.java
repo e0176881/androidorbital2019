@@ -34,9 +34,7 @@ public class TabsActivity extends AppCompatActivity {
                     case R.id.tab2:
                         fragment = new Tab2();
                         break;
-                    case R.id.tab3:
-                        fragment = new Tab3();
-                        break;
+
                 }
                 return displaySelectedScreen(fragment);
             }

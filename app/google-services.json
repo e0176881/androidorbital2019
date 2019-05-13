@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "101501883145",
-    "firebase_url": "https://orbital2019-92d38.firebaseio.com",
-    "project_id": "orbital2019-92d38",
-    "storage_bucket": "orbital2019-92d38.appspot.com"
+    "project_number": "776662253369",
+    "firebase_url": "https://neworbital-66d1c.firebaseio.com",
+    "project_id": "neworbital-66d1c",
+    "storage_bucket": "neworbital-66d1c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:101501883145:android:174fb76caf366462",
+        "mobilesdk_app_id": "1:776662253369:android:174fb76caf366462",
         "android_client_info": {
           "package_name": "com.example.orbital2019"
         }
       },
       "oauth_client": [
         {
-          "client_id": "101501883145-nk8um8e5gavfvbk3grijnf2smv3buol2.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.orbital2019",
-            "certificate_hash": "d60fd3524206c9f3e32717f9e6cf67bf6c4b98de"
-          }
-        },
-        {
-          "client_id": "101501883145-a91aajo6hq64rsbkqk46b2fg61sh52mb.apps.googleusercontent.com",
+          "client_id": "776662253369-9tqckefgsmls45afsvtdkumu93crv65g.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCMG1abwyLzrijzgqrlO-G7cTEBncCqrLY"
+          "current_key": "AIzaSyCBx2XAVhs5x0v2NV8__8ZWaVV_stMFu4E"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "101501883145-a91aajo6hq64rsbkqk46b2fg61sh52mb.apps.googleusercontent.com",
+              "client_id": "776662253369-9tqckefgsmls45afsvtdkumu93crv65g.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -40,12 +40,15 @@ public class LoginFragment extends Fragment  {
         getActivity().setTitle("Login");
         mAuth = FirebaseAuth.getInstance();
 
-        emailEditText = getActivity().findViewById(R.id.email);
+        //instantiate component here
+       /* emailEditText = getActivity().findViewById(R.id.email);
         passwordEditText = getActivity().findViewById(R.id.password);
+          loginBtn = getActivity().findViewById(R.id.login);
+        forgotPw = getActivity().findViewById(R.id.tvforgotpw);*/
 
-        loginBtn = getActivity().findViewById(R.id.login);
+
         progressBar = getActivity().findViewById(R.id.progressBar);
-        forgotPw = getActivity().findViewById(R.id.tvforgotpw);
+
 
 
 
@@ -88,24 +91,9 @@ public class LoginFragment extends Fragment  {
             return;
         }
 
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getActivity().getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
-                            progressBar.setVisibility(View.GONE);
 
-                            FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-                            ft.replace(R.id.content_frame, new HomeFragment());
-                            ft.commit();
-                        }
-                        else {
-                            Toast.makeText(getActivity().getApplicationContext(), "Login failed! Please try again later", Toast.LENGTH_LONG).show();
-                            progressBar.setVisibility(View.GONE);
-                        }
-                    }
-                });
+        //your login code here....
+
     }
 
     public LoginFragment() {

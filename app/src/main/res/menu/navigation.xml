@@ -11,9 +11,5 @@
         android:enabled="true"
         android:icon="@drawable/ic_menu_camera"
         android:title="Tab2" />
-    <item
-        android:id="@+id/tab3"
-        android:enabled="true"
-        android:icon="@drawable/ic_menu_camera"
-        android:title="Tab3" />
+
 </menu>

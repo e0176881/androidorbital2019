@@ -34,9 +34,10 @@ public class ResetPasswordFragment extends Fragment {
         getActivity().setTitle("Reset Password");
         mAuth = FirebaseAuth.getInstance();
 
-        emailEditText = getActivity().findViewById(R.id.txtemail);
+        //instantiate component here
+        /*emailEditText = getActivity().findViewById(R.id.etemail);
+        resetBtn = getActivity().findViewById(R.id.btnresetpassword);*/
 
-        resetBtn = getActivity().findViewById(R.id.btnresetpassword);
         progressBar = getActivity().findViewById(R.id.resetprogressBar);
 
 
@@ -63,16 +64,8 @@ public class ResetPasswordFragment extends Fragment {
         }
 
 
+        //your resetpasswordcode here
 
-        mAuth.sendPasswordResetEmail(email)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getActivity().getApplicationContext(), "New password sent to email!", Toast.LENGTH_LONG).show();
-                        }
-                    }
-                });
     }
 
     public ResetPasswordFragment() {
