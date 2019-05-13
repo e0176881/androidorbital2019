@@ -15,28 +15,30 @@ public class BasicActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_basic);
 
+        // for action bar at the top of the screen
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("Android Basic");
 
         // choose which screen u want to show first.
-        displaySelectedScreen(new RelativeLayout());
-        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
+        displaySelectedScreen(new RelativeLayoutFragment());
 
+        // for bottom navigation bar
+        BottomNavigationView bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment fragment = null;
                 switch (item.getItemId()) {
                     case R.id.Relative:
-                        fragment = new RelativeLayout();
+                        fragment = new RelativeLayoutFragment();
                         break;
                     case R.id.Linear:
-                        fragment = new LinearLayout();
+                        fragment = new LinearLayoutFragment();
                         break;
                     case R.id.Widgets:
-                        fragment = new WidgetsLayout();
+                        fragment = new WidgetsLayoutFragment();
                         break;
                 }
                 return displaySelectedScreen(fragment);
@@ -44,6 +46,7 @@ public class BasicActivity extends AppCompatActivity {
         });
     }
 
+    // helper method to change current display
     private boolean displaySelectedScreen(Fragment fragment) {
         //switching fragment
         if (fragment != null) {
@@ -55,6 +58,7 @@ public class BasicActivity extends AppCompatActivity {
         }
         return false;
     }
+
     // Set back button to finish activity
     @Override
     public boolean onSupportNavigateUp() {

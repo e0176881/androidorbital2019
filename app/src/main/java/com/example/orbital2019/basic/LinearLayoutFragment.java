@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.example.orbital2019.R;
 
-public class RelativeLayout extends Fragment {
+// This controller class is empty because the fragment do not contain any logic operations, it simply displays a static screen
+public class LinearLayoutFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        return inflater.inflate(R.layout.fragment_relativelayout, null);
+        return inflater.inflate(R.layout.fragment_linearlayout, null);
     }
 }
