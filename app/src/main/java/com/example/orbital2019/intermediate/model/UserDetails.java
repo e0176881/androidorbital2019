@@ -60,14 +60,12 @@ public class UserDetails implements Serializable {
 
 
         db.collection(userDetailsKey).document(matriculationNumber).set(data);
+        db.collection(userDetailsKey).document().set(data);
     }
 
     public void deleteEntry() {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        Map<String,Object> data = new HashMap<>();
 
-        data.put(nameKey,name);
-        data.put(matriculationNumberKey,matriculationNumber);
         db.collection(userDetailsKey).document(matriculationNumber).delete();
     }
 

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.orbital2019.R;
+import com.example.orbital2019.intermediate.model.Modules;
 import com.example.orbital2019.intermediate.model.UserDetails;
 import com.google.firebase.firestore.auth.User;
 
@@ -22,14 +23,11 @@ import java.util.List;
 public class IntermediateUpdateUserActivity extends AppCompatActivity {
 
 
-    private List<UserDetails> userDetailsList = new ArrayList<UserDetails>();
-    private ListView listView;
-    private DetailsAdapter detailsAdapter;
 
-    private EditText name;
+    private EditText name, code, remarks, marks;
     private TextView matricNo;
-    private Button updateButton, deleteButton;
-
+    private Button updateButton, deleteButton, addButton;
+    UserDetails userDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,11 +41,16 @@ public class IntermediateUpdateUserActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         Bundle bundle = intent.getExtras();
-        final UserDetails userDetails = (UserDetails) bundle.getSerializable("userDetails");
+        userDetails = (UserDetails) bundle.getSerializable("userDetails");
+        String magic = (String )bundle.getString("magic");
 
         name = findViewById(R.id.updateName);
         name.setText(userDetails.getName());
         matricNo = findViewById(R.id.viewUserMatric);
+        code = findViewById(R.id.code);
+        remarks = findViewById(R.id.remarks);
+        marks = findViewById(R.id.marks);
+
         matricNo.setText(userDetails.getMatriculationNumber());
 
         updateButton = findViewById(R.id.buttonUpdateUser);
@@ -78,6 +81,21 @@ public class IntermediateUpdateUserActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), IntermediateActivity.class);
 
                 startActivityForResult(intent, 0); //looks like it will only update the view
+
+            }
+        });
+
+        addButton = findViewById(R.id.add);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String codeValue =  code.getText().toString();
+                String remarksValue =  remarks.getText().toString();
+                String marksValue =  marks.getText().toString();
+
+                Modules mod = new Modules(codeValue, remarksValue, marksValue , userDetails.getMatriculationNumber());
+                mod.createEntry();
 
             }
         });

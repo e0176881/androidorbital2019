@@ -24,13 +24,17 @@ import com.example.orbital2019.intermediate.model.UserDetails;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Nullable;
 
 public class IntermediateActivity extends AppCompatActivity {
 
@@ -51,6 +55,7 @@ public class IntermediateActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setTitle("View Users");
 
+
         detailsAdapter = new DetailsAdapter(this, userDetailsList);
 
         listView =  findViewById(R.id.details_list_view);
@@ -68,6 +73,7 @@ public class IntermediateActivity extends AppCompatActivity {
                 UserDetails userDetails = (UserDetails)parent.getItemAtPosition(position);
                 Intent intent = new Intent(getApplicationContext(), IntermediateUpdateUserActivity.class);
                 intent.putExtra("userDetails", (Serializable) userDetails);
+                intent.putExtra("magic", "testing magic");
                 startActivity(intent);
             }
         });
@@ -112,7 +118,8 @@ public class IntermediateActivity extends AppCompatActivity {
         FirebaseFirestore fs = FirebaseFirestore.getInstance();
 
 
-        fs.collection(UserDetails.userDetailsKey).orderBy(UserDetails.matriculationNumberKey).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        fs.collection(UserDetails.userDetailsKey).orderBy(UserDetails.matriculationNumberKey).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
 
