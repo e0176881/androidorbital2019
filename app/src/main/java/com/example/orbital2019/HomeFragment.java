@@ -47,9 +47,8 @@ public class HomeFragment extends Fragment {
             basicBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("Testing 123", "It came here");
 
-                    Intent intent = new Intent(null, BasicActivity.class);
+                    Intent intent = new Intent(getContext(), BasicActivity.class);
 
                     startActivityForResult(intent, 0);
 

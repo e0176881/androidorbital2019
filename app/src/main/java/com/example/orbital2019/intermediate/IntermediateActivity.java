@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
@@ -27,6 +26,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.auth.User;
 
@@ -110,23 +110,19 @@ public class IntermediateActivity extends AppCompatActivity {
         finish();
         return true;
     }
-
+    ListenerRegistration registration;
 
     private void loadUserData() {
-
-
         FirebaseFirestore fs = FirebaseFirestore.getInstance();
 
 
-        fs.collection(UserDetails.userDetailsKey).orderBy(UserDetails.matriculationNumberKey).get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+
+        registration = fs.collection(UserDetails.userDetailsKey).orderBy(UserDetails.matriculationNumberKey).addSnapshotListener(new EventListener<QuerySnapshot>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+            public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
 
 
-                List<DocumentSnapshot> documents = task.getResult().getDocuments();
-
-                // clean up the list to prevent double copies
+                List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
                 userDetailsList.removeAll(userDetailsList);
 
                 for (DocumentSnapshot document : documents) {
@@ -149,6 +145,13 @@ public class IntermediateActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+
+        //Remove Listner
+        registration.remove();
+        super.onDestroy();
+    }
 
     private void searchUserData(String filter) {
 
