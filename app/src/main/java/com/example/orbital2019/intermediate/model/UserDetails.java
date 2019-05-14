@@ -44,7 +44,7 @@ public class UserDetails implements Serializable {
         data.put(matriculationNumberKey,matriculationNumber);
 
 
-        db.collection(userDetailsKey).document(matriculationNumberKey).update(data);
+        db.collection(userDetailsKey).document(matriculationNumber).update(data);
     }
 
 
